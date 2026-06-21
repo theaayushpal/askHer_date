@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties (L8: Rose × WarmWhite) ─── */
+:root {
+  --rose-primary:  #E8A0B0;
+  --rose-deep:     #D4607A;
+  --rose-blush:    #F5C6D0;
+  --rose-mist:     #FDE8ED;
+  --warm-white:    #FFF8F5;
+  --warm-cream:    #FFF0E8;
+  --text-dark:     #3D1A24;
+  --text-mid:      #7A3A4A;
+  --text-soft:     #B06070;
+  --shadow-rose:   0 8px 32px rgba(212, 96, 122, 0.15);
+}
+
+/* ─── Base Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--warm-white);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+/* ─── Page Shell — mobile canvas ─── */
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 100dvh;
+  background-color: var(--rose-mist);
+}
+
+/* ─── Typography Utilities ─── */
+.font-display {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+}
+.font-accent {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
+/* ─── Native Input Overrides ─── */
+input[type="date"],
+input[type="time"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--rose-mist);
+  border: 1.5px solid var(--rose-blush);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--text-dark);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input[type="date"]:focus,
+input[type="time"]:focus {
+  border-color: var(--rose-primary);
+  box-shadow: 0 0 0 3px rgba(232, 160, 176, 0.2);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+  filter: invert(40%) sepia(60%) saturate(400%) hue-rotate(300deg);
+}
+
+/* ─── Textarea ─── */
+textarea {
+  background-color: var(--rose-mist);
+  border: 1.5px solid var(--rose-blush);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--text-dark);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s ease;
+}
+
+textarea:focus {
+  border-color: var(--rose-primary);
+  box-shadow: 0 0 0 3px rgba(232, 160, 176, 0.2);
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: var(--text-soft);
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
